@@ -57,16 +57,16 @@ export function handleAddQuestionAnswer (questionId, selectedOption) {
     return (dispatch, getState) => {
         dispatch(showLoading());
 
-        const {authedUser} = getState();
-        const authUser = authedUser.loggedInUser.id;
+        const {auth} = getState();
+        const authedUser = auth.loggedInUser.id;
 
         saveQuestionAnswer({
             authedUser,
             qid: questionId,
             answer: selectedOption
         }).then(() => {
-            dispatch(addQuestionAnswer(authUser, questionId, selectedOption));
-            dispatch(addUserQuestionAnswer(authUser, questionId, selectedOption));
+            dispatch(addQuestionAnswer(authedUser, questionId, selectedOption));
+            dispatch(addUserQuestionAnswer(authedUser, questionId, selectedOption));
             dispatch(hideLoading());
         });
     }
@@ -76,8 +76,8 @@ export function handleAddQuestion (optionOneText, optionTwoText, callback) {
     return (dispatch, getState) => {
         dispatch(showLoading());
 
-        const {authedUser} = getState();
-        const author = authedUser.loggedInUser.id;
+        const {auth} = getState();
+        const author = auth.loggedInUser.id;
 
         saveQuestion({
             optionOneText,

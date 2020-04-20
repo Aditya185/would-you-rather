@@ -84,11 +84,11 @@ class Login extends React.Component{
     }
 
 }
-function mapStateToProps({users,authedUser}) {
+function mapStateToProps({users,auth}) {
   return {
       loading: users === null,
       users,
-      isAuthed: authedUser.authenticated
+      isAuthed: auth.authenticated
   }
 }
 export default connect(mapStateToProps)(Login);

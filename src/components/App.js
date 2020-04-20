@@ -40,7 +40,7 @@ class  App extends Component{
               :  <div>
                 <Switch>
                   <SecuredRoute path='/add' exact component={NewQuestion}  isAuthenticated={this.props.authenticated} />
-                  <SecuredRoute path='/home' exact component={Dashboard}  isAuthenticated={this.props.authenticated} />
+                  <SecuredRoute path='/' exact component={Dashboard}  isAuthenticated={this.props.authenticated} />
                   <SecuredRoute path='/question/:id' exact component={connect(mapStateToProps)(QuestionPoll)} isAuthenticated={this.props.authenticated}/>
                   <SecuredRoute path='/question/:id/results'exact component={connect(mapStateToProps)(Results)}isAuthenticated={this.props.authenticated}/>
                   <Route path="/login" exact component={withRouter(Login)}/>

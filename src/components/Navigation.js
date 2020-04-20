@@ -32,7 +32,7 @@ import React from 'react';
                         <Collapse isOpen={this.state.isNavOpen} navbar>
                             <Nav navbar>
                             <NavItem>
-                                <NavLink  className="nav-link" style={{color: 'white', textDecoration: 'bold'}} activeStyle={{color: 'purple', textDecoration: 'none'}} exact to='/home'> Home</NavLink>
+                                <NavLink  className="nav-link" style={{color: 'white', textDecoration: 'bold'}} activeStyle={{color: 'purple', textDecoration: 'none'}} exact to='/'> Home</NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink className="nav-link"  style={{color: 'white', textDecoration: 'bold'}} activeStyle={{color: 'purple', textDecoration: 'none'}} exact to='/add'> New Question</NavLink>

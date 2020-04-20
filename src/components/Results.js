@@ -47,7 +47,7 @@ const Results = (props) => {
                                   ></div>
                           </div>
                           <div>
-                              <span>{question.optionOne.votes.length} out of {totalVotes} votes. ({optionTwoWidth}%)</span>
+                              <span>{question.optionOne.votes.length} out of {totalVotes} votes. ({optionOneWidth}%)</span>
                           </div>
 
                           </div>

@@ -60,7 +60,7 @@ class NewQuestion extends React.Component{
         } = this.state;
 
         if (toDashboard === true) {
-            return <Redirect to='/home'/>;
+            return <Redirect to='/'/>;
         }
         return(
             <div className ="container" style={{border: '2px solid #A9A9A9',marginTop: '40px', width:'600px' }}>

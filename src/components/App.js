@@ -1,6 +1,6 @@
 import React,{Component,Fragment} from 'react';
 import Navigation from './Navigation';
-import { BrowserRouter as Router, Route ,withRouter} from 'react-router-dom';
+import { BrowserRouter as Router, Route ,withRouter,Switch} from 'react-router-dom';
 import NewQuestion from './NewQuestion';
 import Login from './Login';
 import LeaderBoard from './LeaderBoard';
@@ -38,6 +38,7 @@ class  App extends Component{
             {this.props.loading === true
               ? null
               :  <div>
+                <Switch>
                   <SecuredRoute path='/add' exact component={NewQuestion}  isAuthenticated={this.props.authenticated} />
                   <SecuredRoute path='/home' exact component={Dashboard}  isAuthenticated={this.props.authenticated} />
                   <SecuredRoute path='/question/:id' exact component={connect(mapStateToProps)(QuestionPoll)} isAuthenticated={this.props.authenticated}/>
@@ -46,7 +47,9 @@ class  App extends Component{
                   <Route path="/logout" exact component={withRouter(Logout)}/>
                   <SecuredRoute path='/leaderboard' component={LeaderBoard} isAuthenticated={this.props.authenticated} />
                   <Route component={PageNotFound} />
+                  </Switch>
                   </div>
+
             }
                 </div>
           </div>

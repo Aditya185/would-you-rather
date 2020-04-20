@@ -78,7 +78,7 @@ class QuestionPoll extends React.Component{
                                                onChange={this.handleInputChange}/>{' '}
              {question.optionTwo.text}
           </Label>
-         <Button type = "submit"style={{display: 'block',width: '100%',border: 'none', backgroundColor: '#4CAF50', padding: '14px 28px',fontSize: '16px', cursor: 'pointer', textAlign: 'center',marginBottom:'20px',marginTop:'30px'}}>Submit</Button>
+         <Button type = "submit"style={{display: 'block',width: '100%',border: 'none', backgroundColor: '#4CAF50', padding: '14px 28px',fontSize: '16px', cursor: 'pointer', textAlign: 'center',marginBottom:'20px',marginTop:'30px'}}  disabled={selectedOption === ''}>Submit</Button>
         </Card>
       </Col>
     </Row>

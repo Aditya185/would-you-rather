@@ -1,5 +1,3 @@
-import { showLoading, hideLoading } from 'react-redux-loading'
-import {getUser} from '../utills/api'
 export const AUTH_LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const AUTH_LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 

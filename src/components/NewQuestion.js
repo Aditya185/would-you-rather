@@ -84,7 +84,11 @@ class NewQuestion extends React.Component{
         <Input type="text" name="option2" id="option2" placeholder="Enter Option 2 Text Here" value={optionTwoText} onChange={this.handleOptionTwoTextChange} />
       </FormGroup>
      
-      <Button type = "submit" style={{display: 'block',width: '100%',border: 'none', backgroundColor: '#4CAF50', padding: '14px 28px',fontSize: '16px', cursor: 'pointer', textAlign: 'center',marginBottom:'20px'}}>Submit</Button>
+      <Button type = "submit" style={{display: 'block',width: '100%',border: 'none', backgroundColor: '#4CAF50', padding: '14px 28px',fontSize: '16px', cursor: 'pointer', textAlign: 'center',marginBottom:'20px'}} disabled={
+                                                                   optionOneText === '' ||
+                                                                   optionTwoText === '' ||
+                                                                   hasSubmitted
+                                                               } >Submit</Button>
     </Form>
     </div>
 

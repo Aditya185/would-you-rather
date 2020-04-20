@@ -38,6 +38,7 @@ const Results = (props) => {
             <Row>
                 <Card body>
                     <CardTitle>Would you rather</CardTitle>
+                    <div>
                     <div className={`card card-poll-results ${(optionSelected === 'optionOne') ? "chosen-answer" : ""}`}>Would you rather {question.optionOne.text}?
 
                           <div className="progress m-progress--sm">
@@ -61,6 +62,7 @@ const Results = (props) => {
                               <span>{question.optionTwo.votes.length} out of {totalVotes} votes. ({optionTwoWidth}%)</span>
                           </div>
                           </div>
+                        </div>
                 </Card>
             </Row>
         </Card>

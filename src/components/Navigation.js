@@ -28,7 +28,7 @@ import React from 'react';
             <Navbar dark expand="md" >
                     <div className="container">
                         <NavbarToggler onClick={this.toggleNav} />
-                        <NavbarBrand style = {{color : 'pink',fontStyle:'italic'}}className="mr-auto" href="/">Would You Rather</NavbarBrand>
+                        <NavbarBrand style = {{color : 'pink',fontStyle:'italic'}}className="mr-auto">Would You Rather</NavbarBrand>
                         <Collapse isOpen={this.state.isNavOpen} navbar>
                             <Nav navbar>
                             <NavItem>

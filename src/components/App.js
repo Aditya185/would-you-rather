@@ -21,6 +21,7 @@ class  App extends Component{
     this.props.dispatch(handleInitialData())
   }
   render(){
+    
    
   return (
     <div className="App">
@@ -38,7 +39,7 @@ class  App extends Component{
               ? null
               :  <div>
                   <SecuredRoute path='/new' exact component={NewQuestion}  isAuthenticated={this.props.authenticated} />
-                  <SecuredRoute path='/home' exact component={Question}  isAuthenticated={this.props.authenticated} />
+                  <SecuredRoute path='/home' exact component={Dashboard}  isAuthenticated={this.props.authenticated} />
                   <SecuredRoute path='/' exact component={Results}  isAuthenticated={this.props.authenticated} />
                   <Route path="/login" exact component={withRouter(Login)}/>
                   <Route path="/logout" exact component={withRouter(Logout)}/>
@@ -59,8 +60,9 @@ function mapStateToProps({users, authedUser}) {
   return {
       loading: false,
       loggedInUser: authedUser.loggedInUser,
-      authenticated: authedUser.authenticated
-  }
+      authenticated: authedUser.authenticated,
+      
+}
 }
 
 

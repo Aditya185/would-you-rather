@@ -12,6 +12,7 @@ import { handleInitialData } from '../actions/shared';
 import LoadingBar from 'react-redux-loading';
 import Logout from './Logout';
 import SecuredRoute from './SecuredRoute';
+import PageNotFound from './Page404';
 
 
 
@@ -37,13 +38,14 @@ class  App extends Component{
             {this.props.loading === true
               ? null
               :  <div>
-                  <SecuredRoute path='/new' exact component={NewQuestion}  isAuthenticated={this.props.authenticated} />
+                  <SecuredRoute path='/add' exact component={NewQuestion}  isAuthenticated={this.props.authenticated} />
                   <SecuredRoute path='/home' exact component={Dashboard}  isAuthenticated={this.props.authenticated} />
                   <SecuredRoute path='/question/:id' exact component={connect(mapStateToProps)(QuestionPoll)} isAuthenticated={this.props.authenticated}/>
                   <SecuredRoute path='/question/:id/results'exact component={connect(mapStateToProps)(Results)}isAuthenticated={this.props.authenticated}/>
                   <Route path="/login" exact component={withRouter(Login)}/>
                   <Route path="/logout" exact component={withRouter(Logout)}/>
                   <SecuredRoute path='/leaderboard' component={LeaderBoard} isAuthenticated={this.props.authenticated} />
+                  <Route component={PageNotFound} />
                   </div>
             }
                 </div>

@@ -35,7 +35,7 @@ import React from 'react';
                                 <NavLink  className="nav-link" style={{color: 'white', textDecoration: 'bold'}} activeStyle={{color: 'purple', textDecoration: 'none'}} exact to='/home'> Home</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className="nav-link"  style={{color: 'white', textDecoration: 'bold'}} activeStyle={{color: 'purple', textDecoration: 'none'}} exact to='/new'> New Question</NavLink>
+                                <NavLink className="nav-link"  style={{color: 'white', textDecoration: 'bold'}} activeStyle={{color: 'purple', textDecoration: 'none'}} exact to='/add'> New Question</NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink className="nav-link"  style={{color: 'white', textDecoration: 'bold'}} activeStyle={{color: 'purple', textDecoration: 'none'}} exact to='/leaderboard'>Leaderboard</NavLink>

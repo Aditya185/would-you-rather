@@ -13,7 +13,7 @@ import React from 'react';
       this.toggleNav = this.toggleNav.bind(this);
       this.state = {
         isNavOpen: false,
-        isModalOpen: false
+       
       };
     }
     toggleNav() {
@@ -22,6 +22,7 @@ import React from 'react';
       });
     }
     render(){
+      const loggedInUser = this.props;
     return (
       <React.Fragment>
             <Navbar dark expand="md" >
@@ -43,10 +44,10 @@ import React from 'react';
                             </Nav>
                             <Nav className="ml-auto" navbar>
                                 <NavItem>
-                                   <span className = "nav-link" style={{color: 'black', textDecoration: 'none'}}> Hello Aditya</span>
+                                     <span className = "nav-link" style={{color: 'black', textDecoration: 'none'}}> Hello {loggedInUser.loggedInUser.name}</span>
                                 </NavItem>
                                 <NavItem>
-                                <img src="https://tylermcginnis.com/would-you-rather/dan.jpg" alt={`Avatar of `} className='navatar' />
+                                <img src={loggedInUser.loggedInUser.avatarURL} alt={`Avatar of `} className='navatar' />
                                 </NavItem>
                                 <NavItem>
                                 <NavLink className="nav-link" style={{color: 'white', textDecoration: 'bold'}} activeStyle={{color: 'purple', textDecoration: 'none'}} exact to='/logout'>Logout</NavLink>

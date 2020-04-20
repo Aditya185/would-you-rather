@@ -1,5 +1,9 @@
 import React from 'react';
 import { Card, Button, CardTitle, Row, Col, Label,Input } from 'reactstrap';
+import {handleAddQuestionAnswer} from '../actions/shared';
+import {Redirect} from "react-router-dom";
+
+
 
 const QuestionPoll = () => {
   return (

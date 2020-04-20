@@ -1,6 +1,6 @@
-import { getInitialData,getUser } from '../utills/api'
-import { receiveUsers } from '../actions/users'
-import { receiveQuestions } from '../actions/questions'
+import { getInitialData,getUser,saveQuestionAnswer, saveQuestion } from '../utills/api'
+import { receiveUsers,addUserQuestion,addUserQuestionAnswer } from '../actions/users'
+import { receiveQuestions,addQuestionAnswer,addQuestion } from '../actions/questions'
 import {receiveAuthLogin,receiveAuthLogout} from '../actions/authedUser';
 
 import { showLoading, hideLoading } from 'react-redux-loading'
@@ -50,5 +50,43 @@ export function handleLogoutUser() {
         dispatch(showLoading());
         dispatch(receiveAuthLogout());
         dispatch(hideLoading());
+    }
+}
+
+export function handleAddQuestionAnswer (questionId, selectedOption) {
+    return (dispatch, getState) => {
+        dispatch(showLoading());
+
+        const {authedUser} = getState();
+        const authUser = authedUser.loggedInUser.id;
+
+        saveQuestionAnswer({
+            authedUser,
+            qid: questionId,
+            answer: selectedOption
+        }).then(() => {
+            dispatch(addQuestionAnswer(authUser, questionId, selectedOption));
+            dispatch(addUserQuestionAnswer(authUser, questionId, selectedOption));
+            dispatch(hideLoading());
+        });
+    }
+}
+
+export function handleAddQuestion (optionOneText, optionTwoText, callback) {
+    return (dispatch, getState) => {
+        dispatch(showLoading());
+
+        const {authedUser} = getState();
+        const author = authedUser.loggedInUser.id;
+
+        saveQuestion({
+            optionOneText,
+            optionTwoText,
+            author
+        }).then((question) => {
+            dispatch(addUserQuestion(question));
+            dispatch(addQuestion(question));
+            dispatch(showLoading());
+        }).then(callback);
     }
 }

@@ -1,4 +1,4 @@
-import React,{Component,Fragment} from 'react';
+import React,{Component} from 'react';
 import Navigation from './Navigation';
 import { BrowserRouter as Router, Route ,withRouter,Switch} from 'react-router-dom';
 import NewQuestion from './NewQuestion';
@@ -25,7 +25,7 @@ class  App extends Component{
   return (
     <div className="App">
        <Router>
-       <Fragment>
+       
           <LoadingBar />
        <div>
           
@@ -38,20 +38,23 @@ class  App extends Component{
               ? null
               :  <div>
                 <Switch>
+                
+                  
                   <SecuredRoute path='/add' exact component={NewQuestion}  isAuthenticated={this.props.authenticated} />
                   <SecuredRoute path='/' exact component={Dashboard}  isAuthenticated={this.props.authenticated} />
                   <SecuredRoute path='/question/:id' exact component={connect(mapStateToProps)(QuestionPoll)} isAuthenticated={this.props.authenticated}/>
                   <Route path="/login" exact component={withRouter(Login)}/>
                   <Route path="/logout" exact component={withRouter(Logout)}/>
                   <SecuredRoute path='/leaderboard' component={LeaderBoard} isAuthenticated={this.props.authenticated} />
-                  <Route component={PageNotFound} />
+                    <Route component={PageNotFound} />
+               
                   </Switch>
                   </div>
 
             }
                 </div>
           </div>
-          </Fragment>
+          
        </Router>
      
      

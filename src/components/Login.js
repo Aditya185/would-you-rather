@@ -35,7 +35,7 @@ class Login extends React.Component{
         return <div/>;
        }
 
-       const {from} = this.props.location.state || {from: {pathname: '/home'}};
+       const {from} = this.props.location.state || {from: {pathname: '/'}};
 
       if (this.props.isAuthed) {
         return <Redirect to={from}/>;
@@ -50,7 +50,7 @@ class Login extends React.Component{
         <legend className="center" style={{fontStyle:'italic',fontSize:'30px'}}>Welcome to Would You Rather App! </legend>
         </FormGroup>
         <FormGroup tag="fieldset" >
-        <normal  className = "center" style={{fontStyle:'bold' ,fontSize:'15px'}}>Please sign in to continue..</normal>
+        <p  className = "center" style={{fontStyle:'bold' ,fontSize:'15px'}}>Please sign in to continue..</p>
         </FormGroup>
         <FormGroup tag="fieldset" >
             <div className="center" > <img  src='user.png' height="150" width="150" alt='Sign in'></img></div>

@@ -69,7 +69,7 @@ class NewQuestion extends React.Component{
         <legend className="center" style={{fontStyle:'italic',fontSize:'30px'}}>Create New Question</legend>
         </FormGroup>
         <FormGroup tag="fieldset" >
-        <normal  style={{fontStyle:'bold' ,fontSize:'15px'}}>Complete the Question:</normal>
+        <p  style={{fontStyle:'bold' ,fontSize:'15px'}}>Complete the Question:</p>
         </FormGroup>
         <FormGroup tag="fieldset" >
         <strong  style={{fontStyle:'bold' ,fontSize:'25px'}}>Would you Rather..</strong>

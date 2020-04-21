@@ -44,14 +44,18 @@ import React from 'react';
                             </Nav>
                             <Nav className="ml-auto" navbar>
                                 <NavItem>
-                                     <span className = "nav-link" style={{color: 'black', textDecoration: 'none'}}> Hello {loggedInUser.loggedInUser.name}</span>
+                                     <span className = "nav-link" style={{color: 'black', textDecoration: 'none'}}> {(loggedInUser.loggedInUser===null)?null
+                                                                                                                        :`Hello ${loggedInUser.loggedInUser.name}`}</span>
                                 </NavItem>
                                 <NavItem>
-                                <img src={loggedInUser.loggedInUser.avatarURL} alt={`Avatar of `} className='navatar' />
+                                  {loggedInUser.loggedInUser ===null? null
+                                  :<img src={loggedInUser.loggedInUser.avatarURL} alt={`Avatar of `} className='navatar' />}
                                 </NavItem>
                                 <NavItem>
-                                <NavLink className="nav-link" style={{color: 'white', textDecoration: 'bold'}} activeStyle={{color: 'purple', textDecoration: 'none'}} exact to='/logout'>Logout</NavLink>
-                                </NavItem>
+                                  {loggedInUser.loggedInUser===null?null
+                                   :<NavLink className="nav-link" style={{color: 'white', textDecoration: 'bold'}} activeStyle={{color: 'purple', textDecoration: 'none'}} exact to='/logout'>Logout</NavLink>
+                                  }
+                                  </NavItem>
                             </Nav>
                         </Collapse>
                       

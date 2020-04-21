@@ -32,7 +32,7 @@ const LeaderBoard = (props) => {
     <div className ="container" style={{border: '2px solid #A9A9A9',marginTop: '40px', width:'600px' }}>
     {usersData.map((user, index) => {
       return(
-    <div className ="container" style={{border: '2px solid #A9A9A9',marginTop: '20px',marginBottom:'20px', width:'450px' }}>
+    <div key={index} className ="container" style={{border: '2px solid #A9A9A9',marginTop: '20px',marginBottom:'20px', width:'450px' }}>
     <Row>
       <Col sm="3">
             <Row style={{marginLeft:2, marginTop:25}}>

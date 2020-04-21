@@ -1,9 +1,9 @@
 import React from 'react';
 import { Card, Button, CardTitle, Row, Col, Label,Input } from 'reactstrap';
 import {handleAddQuestionAnswer} from '../actions/shared';
-import {Redirect} from "react-router-dom";
 import PageNotFound from "./Page404";
 import {connect} from 'react-redux';
+import Results from './Results';
 
 
 
@@ -38,19 +38,31 @@ class QuestionPoll extends React.Component{
     };
 
   render(){
-    const {selectedOption, submittedAnswer} = this.state;
-    const {id, question, author, pageNotFound} = this.props;
+    const {selectedOption} = this.state;
+    const {id, question, author, pageNotFound,authedUser} = this.props;
+    const isOneAnswered = question.optionOne.votes.includes(authedUser)
+    const isTwoAnswered = question.optionTwo.votes.includes(authedUser)
+    const answered = isOneAnswered || isTwoAnswered
+    
 
     if (pageNotFound === true) {
         return <PageNotFound/>;
     }
 
-    const redirectTo = `/question/${id}/results`;
+  
+  
 
-    if (submittedAnswer === true) {
-        return <Redirect to={redirectTo}/>;
+    //const redirectTo = `/question/${id}/results`;
+
+    if (answered) {
+        return <Results id={id}/>;
     }
   return (
+
+    <div>
+     
+    {answered? <Results/>
+             : 
     <div  style={{border: '2px solid #A9A9A9',margin:'auto',marginTop: '40px', width:'600px' }}>
     <form onSubmit={(e) => this.handleSubmit(e, id)} >
     <Card body >
@@ -85,16 +97,20 @@ class QuestionPoll extends React.Component{
     </Card>
     </form>
     </div>
+    }
+    </div>
   );
   }
 };
 
-function mapStateToProps({auth, questions, users, match}, props) {
+function mapStateToProps({auth, questions, users, match}, props,questionsToShow) {
   const {id} = props.match.params;
+ // const question = questions[id];
 
   let pageNotFound = true;
   let author = "";
   let specificQuestion = "";
+ 
 
   if (questions[id] !== undefined) {
       pageNotFound = false;
@@ -107,7 +123,8 @@ function mapStateToProps({auth, questions, users, match}, props) {
       question: specificQuestion,
       author: author,
       authedUser: auth.loggedInUser.id,
-      pageNotFound: pageNotFound
+      pageNotFound: pageNotFound,
+      questionsToShow
   }
 }
 

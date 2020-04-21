@@ -74,7 +74,7 @@ const Results = (props) => {
 };
 
 function mapStateToProps({authedUser, questions, users}, props) {
-  const {id} = props.match.params;
+  const {id} = props;
 
   let pageNotFound = true;
   let author = "";

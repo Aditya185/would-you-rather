@@ -23,7 +23,8 @@ const Question = (props) => {
     let viewPollLink = '';
 
     if (props.questionsToShow === 'answered') {
-        viewPollLink = `/question/${id}/results`;
+        
+        viewPollLink = `/question/${id}`;
     } else if (props.questionsToShow === 'unanswered') {
         viewPollLink = `/question/${id}`;
     }
